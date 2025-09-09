@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Portfolio{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('home') }}" class="logo">Muhammad</a>
+        <div class="menu-btn">&#9776;</div>
+        <nav>
+            <a href="{{ url_for('home') }}" {% if request.path == url_for('home') %}class="active"{% endif %}>Home</a>
+            <a href="{{ url_for('achievement') }}" {% if request.path == url_for('achievement') %}class="active"{% endif %}>Achievements</a>
+            <a href="{{ url_for('skills') }}" {% if request.path == url_for('skills') %}class="active"{% endif %}>Skills</a>
+            <a href="{{ url_for('education') }}" {% if request.path == url_for('education') %}class="active"{% endif %}>Education</a>
+            <a href="{{ url_for('experience') }}" {% if request.path == url_for('experience') %}class="active"{% endif %}>Experience</a>
+            <a href="{{ url_for('contact') }}" {% if request.path == url_for('contact') %}class="active"{% endif %}>Contact</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+    <script>
+    document.querySelector('.menu-btn').onclick = function() {
+        document.querySelector('nav').classList.toggle('active');
+    };
+    </script>
+</html>
