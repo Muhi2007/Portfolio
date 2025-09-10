@@ -44,8 +44,9 @@ header {
     left: 0;
     width: 100%;
     padding: 1rem 9%;
-    background-color: black;
-    border: 2px solid green;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom: 2px solid green;
+    border-top: 2px solid green;
     filter: drop-shadow(10px);
     display: flex;
     justify-content: space-between;
@@ -108,7 +109,7 @@ nav a.active{
         border-bottom: 3px solid green;
         border-bottom-left-radius: 2rem;
         padding: 1ram solid;
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.7);
         border-top: 0.1rem solid rgba(0, 0, 0, 1);
         display: none;
     }
@@ -221,6 +222,8 @@ span{
     font-size: 34px;
     font-weight: 600;
     min-width: 240px;
+    width: 350px;
+    overflow: hidden;
 }
 
 .typing-text span{
@@ -252,19 +255,19 @@ span{
 
 @keyframes words{
     0%, 20%{
-        content: "Web Developer";
+        content: "Web Developer  ";
     }
     21%, 40%{
-        content: "Developer";
+        content: "Developer      ";
     }
     41%, 60%{
-        content: "Web Designer";
+        content: "Web Designer   ";
     }
     61%, 80%{
-        content: "Promt Engineer";
+        content: "Promt Engineer ";
     }
     81%, 100%{
-        content: "Script Writer";
+        content: "Script Writer  ";
     }
 }
 
@@ -290,6 +293,9 @@ span{
     
     .home-img img{
         margin-top: 4rem;
+    }
+    .home-img img{
+        position: center;
     }
 }
 
@@ -404,7 +410,6 @@ span{
     line-height: 1.6;
 }
 
-
 /* Contact Section Styles */
 .contact-info {
     font-size: 1.8rem;
@@ -437,5 +442,35 @@ span{
     .skill-card,
     .service-item {
         width: 100%;
+    }
+    .home-img img {
+        width: 70vw;
+    }
+    .social-icons{
+        width: 100%;
+        text-align: center;
+        align-self: center;
+    }
+    .btn {
+        width: 100%;
+        text-align: center;
+        align-self: center;
+    }
+    nav.active{
+        text-align: center;
+        width: 100%;
+        border-left: none;
+    }
+    nav a{
+        margin: 2rem 0;
+    }
+    nav a:hover,
+    nav a.active{
+        border-bottom: 10px solid green;
+    }
+
+    a.contact-link{
+        align-self: center;
+        font-size: 1.5rem;
     }
 }
