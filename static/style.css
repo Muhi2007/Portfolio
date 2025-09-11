@@ -222,7 +222,8 @@ span{
     font-size: 34px;
     font-weight: 600;
     min-width: 240px;
-    width: 350px;
+    display: inline-block;
+    white-space: nowrap;
     overflow: hidden;
 }
 
@@ -255,19 +256,19 @@ span{
 
 @keyframes words{
     0%, 20%{
-        content: "Web Developer  ";
+        content: "Web Developer";
     }
     21%, 40%{
-        content: "Developer      ";
+        content: "Developer";
     }
     41%, 60%{
-        content: "Web Designer   ";
+        content: "Web Designer";
     }
     61%, 80%{
-        content: "Promt Engineer ";
+        content: "Promt Engineer";
     }
     81%, 100%{
-        content: "Script Writer  ";
+        content: "Script Writer";
     }
 }
 
