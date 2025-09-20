@@ -17,10 +17,9 @@ body {
     width: 100%;
     height: 100vh;
     overflow-x: hidden;
-    /* Animated gradient properties */
     background: linear-gradient(270deg, #203322, #10100b, #1f331f);
     background-size: 600% 600%;
-    animation: gradientAnimation 10s ease infinite;
+    animation: gradientAnimation 20s ease infinite;
     color: white;
     font-family: 'Poppins', sans-serif;
 }
@@ -38,20 +37,26 @@ body {
 }
 
 header {
-    margin-top: 20px;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1rem 9%;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-bottom: 2px solid green;
-    border-top: 2px solid green;
-    filter: drop-shadow(10px);
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(90% - 40px);
+    max-width: 1000px;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 19px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    transition: all 0.3s ease-in-out;
+    /* Added flex-wrap to allow items to wrap onto the next line */
+    flex-wrap: wrap; 
 }
 
 .logo{
@@ -66,7 +71,8 @@ header {
     transform:scale(1.1);
 }
 
-nav a{
+/* Renamed to nav.navbar to be more specific */
+nav.navbar a{
     font-size: 1.8rem;
     color: green;
     margin-left: 4rem;
@@ -75,8 +81,8 @@ nav a{
     border-bottom: 3px solid transparent;
 }
 
-nav a:hover,
-nav a.active{
+nav.navbar a:hover,
+nav.navbar a.active{
     color: greenyellow;
     border-bottom: 3px solid greenyellow;
 }
@@ -100,34 +106,38 @@ nav a.active{
     .menu-btn{
         display: block;
     }
-    nav{
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 40%;
-        border-left: 3px solid green;
-        border-bottom: 3px solid green;
-        border-bottom-left-radius: 2rem;
-        padding: 1ram solid;
-        background-color: rgba(0, 0, 0, 0.7);
-        border-top: 0.1rem solid rgba(0, 0, 0, 1);
+
+    /* Target the nav element (with class .navbar) */
+    nav.navbar{
+        /* Hide the nav links by default on mobile */
         display: none;
+        /* Make the container take the full width of the header */
+        width: 100%;
+        /* Stack the links vertically */
+        flex-direction: column;
+        align-items: center;
+        padding-top: 1.5rem; /* Add space between logo and links */
+        padding-bottom: 1rem;
     }
-    nav.active{
-        display: block;
+
+    /* When the nav has the .active class, show it */
+    nav.navbar.active{
+        display: flex;
     }
-    nav a{
+
+    /* Style for the links inside the mobile menu */
+    nav.navbar a{
         display: block;
         font-size: 2rem;
-        margin: 3rem 1;
+        margin: 1.5rem 0; /* Use vertical margin */
     }
-    nav a:hover,
-    nav a.active{
-        padding: 1rem;
-        border-radius: 0.5rem;
-        border-bottom: 0.5rem solid green;
+    
+    /* Optional but recommended: make the header slightly more opaque when menu is open for better readability */
+    header.active {
+        background-color: rgba(0, 0, 0, 0.7);
     }
 }
+
 
 section{
     min-height: 100vh;
@@ -239,11 +249,11 @@ span{
 
 .typing-text span:after {
     content: "";
-    background-color: transparent; /* Changed from black */
+    background-color: transparent; 
     position: absolute;
     width: calc(100% + 8px);
     height: 100%;
-    border-left: 3px solid transparent; /* Changed from black */
+    border-left: 3px solid transparent; 
     right: -8;
     animation: cursor 0.6s infinite;
 }
@@ -294,9 +304,7 @@ span{
     
     .home-img img{
         margin-top: 4rem;
-    }
-    .home-img img{
-        position: center;
+        /* 'center' is not a valid value for position, it's likely you meant to center it with margins */
     }
 }
 
@@ -435,6 +443,9 @@ span{
 }
 
 @media (max-width: 768px) {
+    header{
+        width: calc(100% - 40px);
+    }
     .service-container,
     .skills-container {
         flex-direction: column;
@@ -457,19 +468,15 @@ span{
         text-align: center;
         align-self: center;
     }
-    nav.active{
+    /* Updated this section as well based on the new logic */
+    nav.navbar.active{
         text-align: center;
         width: 100%;
-        border-left: none;
     }
-    nav a{
+    nav.navbar a{
         margin: 2rem 0;
     }
-    nav a:hover,
-    nav a.active{
-        border-bottom: 10px solid green;
-    }
-
+    
     a.contact-link{
         align-self: center;
         font-size: 1.5rem;

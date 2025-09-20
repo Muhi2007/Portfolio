@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <header>
+    <header id="header">
         <a href="{{ url_for('home') }}" class="logo">Muhammad</a>
         <div class="menu-btn">&#9776;</div>
-        <nav>
+        <nav class="navbar">
             <a href="{{ url_for('home') }}" {% if request.path == url_for('home') %}class="active"{% endif %}>Home</a>
             <a href="{{ url_for('achievement') }}" {% if request.path == url_for('achievement') %}class="active"{% endif %}>Achievements</a>
             <a href="{{ url_for('skills') }}" {% if request.path == url_for('skills') %}class="active"{% endif %}>Skills</a>
@@ -23,10 +23,19 @@
     <main>
         {% block content %}{% endblock %}
     </main>
-</body>
+
+    <!-- Updated JavaScript to toggle classes on all necessary elements -->
     <script>
-    document.querySelector('.menu-btn').onclick = function() {
-        document.querySelector('nav').classList.toggle('active');
-    };
+        const menuBtn = document.querySelector('.menu-btn');
+        const nav = document.querySelector('.navbar');
+        const header = document.getElementById('header');
+
+        menuBtn.onclick = function() {
+            // Toggle the 'active' class on the menu button, the navbar, and the header itself
+            menuBtn.classList.toggle('active');
+            nav.classList.toggle('active');
+            header.classList.toggle('active');
+        };
     </script>
+</body>
 </html>
