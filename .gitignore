@@ -1,0 +1,33 @@
+--- Python Virtual Environment ---
+This is the line that will ignore your .venv folder
+.venv/
+venv/
+env/
+.env/
+
+--- Environment Variables (for security) ---
+.env
+*.env
+
+--- Python Cache and Compiled Files ---
+pycache/
+*.pyc
+*.pyo
+*.pyd
+
+--- IDE and Editor Configuration ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+--- Flask Specific Files ---
+instance/
+.webassets-cache/
+
+--- Operating System Files ---
+.DS_Store
+Thumbs.db
+
+--- Log files ---
+*.log
